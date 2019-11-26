@@ -1,0 +1,14 @@
+\babel@toc {american}{}
+\babel@toc {american}{}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Design Decisions}{1}{section.2}% 
+\contentsline {section}{\numberline {3}Solution Approach}{1}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Generating Input Examples}{1}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Exhaustive Enumeration Algorithm}{1}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Reliability}{2}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Presentation of Results}{2}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Exhaustive Enumeration Algorithm - Explanation}{5}{section.4}% 
+\contentsline {section}{\numberline {5}Observations and Analysis}{6}{section.5}% 
+\contentsline {section}{\numberline {6}Discussion}{7}{section.6}% 
+\contentsline {section}{\numberline {7}ReadMe File}{7}{section.7}% 
+\contentsline {section}{\numberline {8}Code}{8}{section.8}% 
