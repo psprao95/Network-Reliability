@@ -77,16 +77,18 @@
 
 \section{Introduction}
 \begin{itemize}
-\item In this project, we try to implement the Nagamochi Ibaraki algorithm for finding the edge connectivity of a connected graph
-\item Give an input graph with n nodes and m edges, our program outputs the edge connectivity of the graph
-\item We do this for range of values of m
-\item  We also analyze how the edge connectivity varies with the value of m and assess the spread of the edge connectivity values
+\item In this project, we try to implement the Exhaustive Enumeration   algorithm for finding the reliability of a network
+\item Give an input network with n nodes , m edges, and component reliability p, our program outputs the reliability of the network 
+\item We do this for range of values of p
+\item We can also flip the system condition for k states
+\item  We also analyze how the reliability varies with the value of k when the value of p is fixed
 \item We discuss the possible reasons for the above characteristics.
 \end{itemize}
 
 \section{Design Decisions}
 \begin{itemize}
 \item We implement the solution in the \textbf{Java} programming language
+\item We use the \textbf{Eclipse} IDE since it has a lot of help for debugging 
 \item The program modules were run on a \textbf{Mac} operating system
 
 \end{itemize}
@@ -99,12 +101,12 @@
 
 \subsection{Generating Input Examples}
 We first generate  input graphs for simulating the algorithm.
-These graphs are then passed on to second \textit{Module 1} module which runs the Exhaustive Enumeration algorithm on them. The graphs are generated as follows.
+These graphs are then passed on to \textit{Module 2}  which runs the Exhaustive Enumeration algorithm on them. The graphs are generated as follows.
 
 \begin{itemize}
 \item For all examples, we set the number of nodes in the network to 5 i.e \textit{n} = 5
 
-\item The topology of the graph for all examples is a complete graph, hence the numbe of edges m=10
+\item The topology of the graph for all examples is a complete graph, hence the number of edges m=10
 
 
 
@@ -118,12 +120,12 @@ These graphs are then passed on to second \textit{Module 1} module which runs th
 
 
 \begin{itemize}
-\item The n nodes in our network are always up
-\item We have m links each of which may fail
-\item The minimum number of links that may fail is zero, while the maximum number is m
-\item We can generate $2^{m}$ possible states, each of which may contain some links which fail and some links do not
-\item We proceed step by step, generating states with k failures, k=0,1,2,...m and store them
-\item We generate 
+\item The \textbf{n} nodes in our network are always up
+\item We have \textbf{m} links each of which may fail
+\item The minimum number of links that may fail in a particular state is \textbf{zero}, while the maximum number is \textbf{m}
+\item We can generate \textbf{$2^{m}$} possible states, each of which may contain some links which fail and some links do not
+\item We proceed step by step, generating states with \textbf{k} failures, k=0,1,2,...m and store them
+
 \end{itemize}
 
 Module 2  passes the generated states it on to Module 3, which computes the raliability for the network.
@@ -132,14 +134,14 @@ Module 2  passes the generated states it on to Module 3, which computes the rali
 
 \subsection{Reliability}
 
-\textit{Module 3} takes the output parameters of \textit{Module 2} i.e. the \textbf{generated states} for an input graph.
+\textit{Module 3} takes the output parameters of \textit{Module 2} i.e. the \textbf{generated states} for an input network
 
 \begin{itemize}
 
 
 \item We iterate through the states received
 
- \item For each state we check if the network is \textit{connected} using a depth first search
+ \item For each state we check if the network is \textit{connected} using a \textbf{depth first search}
  
  \item  If it is connected, then the system condition is \textbf{up}, else the system condition is \textit{down}
 
@@ -148,7 +150,7 @@ Module 2  passes the generated states it on to Module 3, which computes the rali
 prob(s)=p*u + (1-p)*d
 \end{equation}
 
-where u is the number of links which are up and d is the number of links which are down
+where \textbf{u} is the number of links which are up and \textbf{d} is the number of links which are down
 
 \item The \textbf{reliability} of the network is the sum of probabilities of the \textbf{up} states
  
@@ -186,7 +188,7 @@ The flowchart for Task 2 is shown below.
 \begin{itemize}
 
 
-\item The goal is to find the \textit{reliability} of a network where nodes anre always up but links may fail
+\item The goal is to find the \textit{reliability} of a network where nodes are always up but links may fail
 
 \item We generate \textbf{all possible states} for the network where each component may be \textit{up} or \textit{down}
 
@@ -233,7 +235,7 @@ where \textbf{u} is the number of links which are up and \textbf{d} is the numbe
       	\State $fail=0$
       	
       	\For {$j=1 \text{ to } m$}
-      		\If {$s[i]=1$}
+      		\If {$s[j]=1$}
       			\State $fail=fail+1$
       			\EndIf
       			\EndFor
@@ -264,38 +266,40 @@ where \textbf{u} is the number of links which are up and \textbf{d} is the numbe
 
 
 \item The program produces outputs as shown in the figures below.\\
+ 
+\includegraphics[scale=0.3]{fig/photo1.png}\\
 
+\includegraphics[scale=0.3]{fig/photo2.png}\\
 
  
 \item The output results are stored in a \textit{csv} file. The graphs are generated in \textbf{R}.
 
-\item We plot the graph of the \textit{number of edges} m vs. the \textit{edge connectivity} $\lambda(G)$
+\item We plot the graph of the \textit{component reliability} p vs. the \textit{network reliability}. 
 
 \includegraphics[scale=0.6]{fig/plot1.png}\\
 
-\item We can clearly see that the edge connectivity of the network \textbf{increases} with increase in the value of m
+\item We can clearly see that the reliability of the network \textbf{increases} with increase in the value of p
 
 
 
-\item We plot the graph of edge connectivity values \textbf{lambda(G)} against their \textbf{spread}\\
+\item We plot the graph of k values  against  network reliabilities.\\
 
 \includegraphics[scale=0.6]{fig/plot2.png}
 
 
 
 
-\item We can clearly see that the \textbf{spread} of edge connectivity values increases, saturates in the middle and then decreases
+\item We can clearly see that the reliability of a network shows \textbf{no distinct behaviour} with respect to the k values
 \end{itemize}
  
 \section{Discussion}
 \begin{itemize}
 
-\item As the number of edges in the graph increases, the number of edge disjoint paths between any two nodes tends to increase, hence the edge connectivity of the graph also \textbf{increases}
+\item As the component reliability \textbf{p} in the graph increases, the probabilities contribution of the \textit{up} states to the network reliability tends to increase, hence the reliability of the graph also \textbf{increases}
 
-\item In our observations, the highest values of spread occur for $\lambda(G)=2,3,4$ i.e middle values with decreasing values on either side
+\item When we fix the value of p to \textbf{0.87} and \textbf{vary k}, the reliability of the network shows no distinct behavior. Most of the reliability values are close to the reliability value without flipping any states i.e. k=0
 
-\item The reason is that a given value of  edges connectivity (especially the ones in the middle) tends to persist for a range of m values, especially since for each graph we choose edges randomly, which sort of randomises our progression as m increases
-
+\item The reason is that flipping a few states (in our case, a maximum of 25 states out of 1024) does not affect the reliability of the network. This shows that the Exhaustive Enumeration algorithm gives us an accurate estimate of the network reliability even if some states are wrongly assigned system condition.
 
 
 \end{itemize}
@@ -309,12 +313,12 @@ where \textbf{u} is the number of links which are up and \textbf{d} is the numbe
   \begin{itemize}
   \item Downloads the project files and store them in a folder
   \item Open the project folder in Eclipse
-  \item Open the file \textbf{Presentation.java}
+  \item Open the file \textbf{Analysis.java}
   \item Right Click $->$ Run as $->$ Java Application
   \item Alternatively,navigate to the folder in \textbf{terminal} and run the following commands
   \begin{itemize}
-  \item javac Presentation.java
-  \item java Presentation
+  \item javac Analysis.java
+  \item java Analysis
   \end{itemize}
   \end{itemize}
 
@@ -341,7 +345,7 @@ where \textbf{u} is the number of links which are up and \textbf{d} is the numbe
 
 
 \textbf{Visualization.R.java}
-\lstinputlisting{/users/psprao/eclipse-workspace/Nagamochi-Ibaraki/visualization.R}
+\lstinputlisting{/users/psprao/eclipse-workspace/network-reliability/visualization.R}
 
 
 

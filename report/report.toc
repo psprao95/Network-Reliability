@@ -9,6 +9,6 @@
 \contentsline {subsection}{\numberline {3.4}Presentation of Results}{2}{subsection.3.4}% 
 \contentsline {section}{\numberline {4}Exhaustive Enumeration Algorithm - Explanation}{5}{section.4}% 
 \contentsline {section}{\numberline {5}Observations and Analysis}{6}{section.5}% 
-\contentsline {section}{\numberline {6}Discussion}{7}{section.6}% 
-\contentsline {section}{\numberline {7}ReadMe File}{7}{section.7}% 
-\contentsline {section}{\numberline {8}Code}{8}{section.8}% 
+\contentsline {section}{\numberline {6}Discussion}{8}{section.6}% 
+\contentsline {section}{\numberline {7}ReadMe File}{8}{section.7}% 
+\contentsline {section}{\numberline {8}Code}{9}{section.8}% 
